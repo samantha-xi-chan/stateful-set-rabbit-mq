@@ -6,7 +6,7 @@ metadata:
   name: rmq-cluster
   namespace: public-service
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: rmq-cluster
@@ -25,15 +25,9 @@ spec:
         - sh
         env:
         - name: RABBITMQ_DEFAULT_USER
-          valueFrom:
-            secretKeyRef:
-              key: username
-              name: rmq-cluster-secret
+          value: "guest"
         - name: RABBITMQ_DEFAULT_PASS
-          valueFrom:
-            secretKeyRef:
-              key: password
-              name: rmq-cluster-secret
+          value: "guest"
         - name: RABBITMQ_ERLANG_COOKIE
           valueFrom:
             secretKeyRef:
