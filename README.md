@@ -1,0 +1,1 @@
+# stateful-set-rabbit-mq
